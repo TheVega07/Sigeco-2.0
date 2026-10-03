@@ -1,0 +1,139 @@
+/* Importar fuente moderna */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+/* ========================================= */
+/* DISEÑO MODERNO DEL LOGIN (Glassmorphism)  */
+/* ========================================= */
+.login-bg {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 3rem;
+    width: 100%;
+    max-width: 420px;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
+
+.login-input {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    background-color: #f8f9fa;
+}
+
+.login-input:focus {
+    background-color: #fff;
+    border-color: #2a5298;
+    box-shadow: 0 0 0 0.25rem rgba(42, 82, 152, 0.25);
+}
+
+.btn-login {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: opacity 0.3s;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+/* ========================================= */
+/* DISEÑO DEL DASHBOARD Y MENÚ               */
+/* ========================================= */
+.sidebar {
+    min-height: calc(100vh - 60px);
+    background-color: #1a2229;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+}
+
+.sidebar .nav-link {
+    color: #aeb5bc;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+    background-color: #2a5298;
+    color: white;
+    transform: translateX(5px);
+}
+
+.card-dashboard {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-dashboard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+}
+
+.table-modern {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.table-modern thead {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* Animación para el feedback de los archivos */
+.file-feedback {
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* ========================================= */
+/* Ajustes SIGECO 28 (versión corregida)     */
+/* ========================================= */
+.contenido { background-color: #f4f7fa; min-height: calc(100vh - 60px); }
+.titulo-seccion { color: #1e3c72; }
+.brand-sub { font-size: .72rem; font-weight: 400; opacity: .85; line-height: 1.1; }
+.barra-progreso { height: 20px; border-radius: 10px; background-color: #e9ecef; }
+.table-modern .table-responsive { overflow-x: auto; }
+.table-modern table { white-space: nowrap; }
+.sidebar .nav-link { cursor: pointer; }
+@media (max-width: 991.98px) {
+    .sidebar { min-height: 0; }
+    .sidebar .nav-link:hover, .sidebar .nav-link.active { transform: none; }
+    .glass-card { padding: 2rem 1.5rem; margin: 1rem; }
+}
