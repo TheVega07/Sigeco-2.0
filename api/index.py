@@ -66,8 +66,22 @@ def _no_cache(resp):
     return resp
 
 
+# Valores por defecto de la base en Clever Cloud. Si existen variables de entorno
+# en Vercel (DB_HOST, DB_USER, ...), ESAS tienen prioridad sobre estos valores.
+_DEFECTOS = {
+    "DB_HOST": "bofka0yvxs4omirhgxov-mysql.services.clever-cloud.com",
+    "DB_USER": "uqhndfmb7n4qeitj",
+    "DB_PASSWORD": "pCgS8AdKvbLpLdCSpvqK",
+    "DB_NAME": "bofka0yvxs4omirhgxov",
+    "DB_PORT": "3306",
+}
+
+
 def _env(nombre, defecto=None):
-    valor = os.environ.get(nombre, defecto)
+    valor = os.environ.get(nombre) or _DEFECTOS.get(nombre) or defecto
+    if valor in (None, "") and nombre == "SECRET_KEY":
+        # Sin SECRET_KEY propia, se deriva una a partir de la clave de la base.
+        valor = hashlib.sha256(("sigeco28:" + _env("DB_PASSWORD")).encode()).hexdigest()
     if valor in (None, ""):
         raise RuntimeError(f"Falta la variable de entorno {nombre}")
     return valor
